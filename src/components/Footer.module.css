@@ -1,0 +1,13 @@
+.passage {
+    font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 13.86px;
+      line-height: 126%;
+      letter-spacing: 0;
+      color: #585858 !important;
+  }
+
+  .footer {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
