@@ -269,7 +269,7 @@ const BlogPost = async ({ params }) => {
         )}
         <br />
         <div className="mt-3 text-secondary">
-          <p className="text-muted">
+          <p className="text-muted pe-2">
             <LikeButton postId={post.slug} initialLikes={post.likes} />
             Likes • {post.views} Views • {postedDate}
           </p>
