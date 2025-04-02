@@ -1,8 +1,13 @@
-"use client";
+// "use client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BootstrapClient from "./BootstrapClient";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Loading from "@/components/Loading";
+import ScrollUpBtn from '@/components/ScrollUpBtn';
+
 
 
 export default function RootLayout({ children }) {
@@ -15,8 +20,11 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
       </head>
       <body>
-        <BootstrapClient />
+        <Navbar />
         {children}
+        <Footer />
+        <BootstrapClient />
+        <ScrollUpBtn />
       </body>
     </html>
   );

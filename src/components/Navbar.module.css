@@ -21,3 +21,33 @@
     font-size: 0.8rem;
     font-weight: 400;
   }
+
+  @media (max-width: 768px) {
+    .search {
+      width: 100% !important;
+    }
+    .portfolio{
+      display: none;
+    }
+  }
+
+  .searchbtn:hover .search {
+    color: white !important;
+}
+
+  
+
+  .navbarTransition {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hide {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  

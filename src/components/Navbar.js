@@ -1,51 +1,64 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Button from "./ui/Button"; // Import reusable Button component
+import Button from "./ui/Button";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > lastScrollY) {
+            setIsVisible(false);
+          } else {
+            setIsVisible(true);
+          }
+          setLastScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-<nav className="navbar navbar-expand-md bg-white position-sticky top-0">
-  <div className="container-fluid">
-    <a className="navbar-brand" href="https://vamsikrishna.site/" target="_blank">
-      Vamsi Krishna <span className={styles.small}>| Blog</span>
-    </a>
-
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
+    <nav
+      className={`navbar bg-white position-sticky top-0 z-3 w-100 ${styles.navbarTransition} ${
+        isVisible ? styles.show : styles.hide
+      }`}
     >
-      <span className="navbar-toggler-icon"></span>
-    </button>
+      <div className="container-fluid d-flex justify-content-between align-items-center">
+        <a className="navbar-brand mb-1" href="/">
+          <strong>Vamsi Krishna</strong> <span className={styles.small}>| Blog</span>
+        </a>
 
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <a href="https://vamsikrishna.site/" target="_blank" className={`${styles.button} btn btn-outline-dark rounded-5`} type="submit">
-            My Portfolio
+       
+        <ul className={`${styles.portfolio} navbar-nav mx-aut mb-2 mb-lg-0`}>
+          <li className="nav-item">
+            <a
+              href="https://vamsikrishna.site/"
+              target="_blank"
+              className={`${styles.button} btn btn-outline-dark rounded-5`}
+            >
+              My Portfolio
+            </a>
+          </li>
+        </ul>
+
+          <a href="/Search" className={`${styles.searchbtn} btn btn-outline-dark rounded-5`} type="submit">
+            <i className={`${styles.search} bi bi-search`}></i>
           </a>
-        </li>
-      </ul>
-
-      <form className="d-flex" role="search">
-        <input
-          className={`${styles.input} form-control me-2 rounded-5`}
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button className={`${styles.button} btn btn-outline-dark rounded-5`} type="submit">
-          Search
-        </button>
-      </form>
-    </div>
-  </div>
-</nav>
+      </div>
+    </nav>
   );
 };
 

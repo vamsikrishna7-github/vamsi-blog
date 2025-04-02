@@ -6,8 +6,33 @@
       letter-spacing: 0;
       color: #585858 !important;
   }
-
+.passage:hover {
+  color: #000000 !important;
+}
   .footer {
-    margin-right: 10%;
-    margin-left: 10%;
+    padding: 2rem 0;
+  }
+  
+  @media (max-width: 576px) {
+    .footer .passage {
+      font-size: 0.9rem;
+    }
+    
+    .footer h5 {
+      font-size: 1.1rem;
+    }
+    
+    .footer .btn {
+      padding: 0.4rem;
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 768px) {
+    .footer .passage {
+      font-size: 1rem;
+    }
+    
+    .footer .btn {
+      padding: 0.5rem;
+    }
   }

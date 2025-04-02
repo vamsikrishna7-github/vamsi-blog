@@ -1,0 +1,12 @@
+.input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.color {
+    color: #585858 !important;
+}
+
+.color:hover {
+    color: #000000 !important;
+}

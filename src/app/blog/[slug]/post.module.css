@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap');
+
+
+.navText:hover {
+    color: #000 !important; 
+    transition: color 0.3s ease-in-out;
+}
+
+.navText {
+    color: #585858 !important;
+}
+
+
+/*  */
+
+.section {
+   width: 730px !important; 
+}
+@media(max-width: 725px){
+    .section {
+        width: 100% !important;
+    }
+}
