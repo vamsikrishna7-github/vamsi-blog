@@ -1,6 +1,6 @@
 # Vamsi-Blog: SEO-Friendly Next.js React Tech Blog with Django DRF
 
-![Vamsi Blog](https://blog.vamsikrishna.site/cover-image.png)
+![Image](https://github.com/user-attachments/assets/3198b7c9-945d-454d-ab38-4b9019642f26)
 
 ## 🚀 Vamsi Blog - Next.js & Django Powered Tech Blog
 
