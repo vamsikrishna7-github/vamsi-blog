@@ -29,6 +29,7 @@ function Search() {
     }
   };
 
+
   return (
     <div className="container">
       <div className="d-flex justify-content-center mt-5 mb-4">
@@ -66,6 +67,7 @@ function Search() {
               day: 'numeric',
               year: 'numeric',
             });
+            const isVideo = /\.(mp4|webm|ogg)$/i.test(post.main_image);
 
             return (
               <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={post.slug}>
@@ -73,13 +75,21 @@ function Search() {
                     <div className={`${styles.card} card h-100 shadow-sm rounded-0 border-0`}>
                       <Link href={`/blog/${post.slug}`} className="text-decoration-none">
                       <div className="ratio ratio-16x9">
-                        {post.main_image && (<Image
-                          priority
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.main_image}`}
-                          alt={post.title}
-                          fill
-                          className="object-cover rounded-0"
-                        />)}
+       {post.main_image && ( isVideo ?
+          <>
+              <video width="100%" height="auto" controls className="object-cover rounded-0 mb-3">
+                  <source src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`} type="video/mp4" />
+                  Your browser does not support the video tag.
+              </video>
+          </> :
+          <Image
+            src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`}
+            alt={post.title}
+            width={600}
+            height={300}
+            className="img-fluid rounded-0 w-100 my-3 border border-1 mb-3"
+          />
+        )}
                       </div>
                       </Link>
                       <div className="card-body d-flex flex-column">  

@@ -59,6 +59,7 @@ const BlogPost = async ({ params }) => {
 
   const contentParagraphs = cleanContent(post.content);
 
+  const isVideo = /\.(mp4|webm|ogg)$/i.test(post.main_image);
 
   return (
     <section className={`${styles.section} container-fluid`}>
@@ -71,13 +72,19 @@ const BlogPost = async ({ params }) => {
       </div>
 
       <div className="card text-white rounded-0 mt-2 border-0">
-        {post.main_image && (
+        {post.main_image && ( isVideo ?
+          <>
+              <video width="100%" height="auto" controls className="object-cover rounded-0 mb-3">
+                  <source src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`} type="video/mp4" />
+                  Your browser does not support the video tag.
+              </video>
+          </> :
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.main_image}`}
+            src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`}
             alt={post.title}
             width={600}
             height={300}
-            className="img-fluid rounded-0 w-100 my-3 border border-1"
+            className="img-fluid rounded-0 w-100 my-3 border border-1 mb-3"
           />
         )}
        
@@ -102,11 +109,11 @@ const BlogPost = async ({ params }) => {
           {post.sec1_image && (
             <>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.sec1_image}`}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.sec1_image}`}
                 alt={post.title}
                 width={600}
                 height={300}
-                className="img-fluid rounded-0 w-100 my-2 border border-1"
+                className="img-fluid rounded-0 w-100 my-2 border border-1 my-3"
                 
               />
               <br />
@@ -130,11 +137,11 @@ const BlogPost = async ({ params }) => {
           {post.sec2_image && (
             <>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.sec2_image}`}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.sec2_image}`}
                 alt={post.title}
                 width={600}
                 height={300}
-                className="img-fluid rounded-0 w-100 my-2 border border-1"
+                className="img-fluid rounded-0 w-100 my-2 border border-1 my-3"
                 
               />
               <br />
@@ -156,11 +163,11 @@ const BlogPost = async ({ params }) => {
           {post.sec3_image && (
             <>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.sec3_image}`}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.sec3_image}`}
                 alt={post.title}
                 width={600}
                 height={300}
-                className="img-fluid rounded-0 w-100 my-2 border border-1"
+                className="img-fluid rounded-0 w-100 my-2 border border-1 my-3"
                 
               />
               <br />
@@ -182,11 +189,11 @@ const BlogPost = async ({ params }) => {
           {post.sec4_image && (
             <>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.sec4_image}`}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.sec4_image}`}
                 alt={post.title}
                 width={600}
                 height={300}
-                className="img-fluid rounded-0 w-100 my-2 border border-1"
+                className="img-fluid rounded-0 w-100 my-2 border border-1 my-3"
                 
               />
               <br />
@@ -208,11 +215,11 @@ const BlogPost = async ({ params }) => {
           {post.sec5_image && (
             <>
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_URL}${post.sec5_image}`}
+                src={`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.sec5_image}`}
                 alt={post.title}
                 width={600}
                 height={300}
-                className="img-fluid rounded-0 w-100 my-2 border border-1"
+                className="img-fluid rounded-0 w-100 my-2 border border-1 my-3"
                 
               />
               <br />
