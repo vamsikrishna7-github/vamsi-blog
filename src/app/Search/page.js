@@ -19,7 +19,7 @@ function Search() {
     
     try {
       setLoading(true);
-      const response = await fetch(`${getPostsUrl}?search=${query}`);
+      const response = await fetch(`${getPostsUrl}?search=${query}`,{credentials: "include",});
       const data = await response.json();
       setResults(data);
     } catch (error) {
