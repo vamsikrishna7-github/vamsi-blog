@@ -7,11 +7,23 @@ const nextConfig = {
     domains: [
       '127.0.0.1', 
       'vamsikrishna.site', 
+      'www.vamsikrishna.site', 
       'blog.vamsikrishna.site', 
+      'www.blog.vamsikrishna.site',
       'vamsikrishna-site.onrender.com', 
       'res.cloudinary.com' // ✅ Added Cloudinary for remote images
     ],
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.vamsikrishna.site',
+        pathname: '/media/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'blog.vamsikrishna.site',
+        pathname: '/media/**',
+      },
       {
         protocol: 'https',
         hostname: 'vamsikrishna-site.onrender.com',
