@@ -28,7 +28,8 @@ const Blog = async () => {
             });
 
             // video or image
-            const mediaUrl = `${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`;
+            const mediaUrl = `https://res.cloudinary.com/djzsfnsjj/${post.main_image}`;
+
             const isVideo = /\.(mp4|webm|ogg)$/i.test(post.main_image); // Check file extension
 
             return (

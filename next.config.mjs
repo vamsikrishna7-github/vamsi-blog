@@ -28,6 +28,14 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 7, // 1-week cache
     dangerouslyAllowSVG: false, // Disable SVG unless needed
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Add this section for videos
+  experimental: {
+    optimizeFonts: true, 
+    optimizeCss: true,
+    images: {
+      unoptimized: true, // Try this if images still fail
+    }
+  }
   },
 
   // ===== Build & Lint Config =====
