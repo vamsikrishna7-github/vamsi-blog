@@ -29,8 +29,10 @@ const Blog = async () => {
 
             // video or image
             const mediaUrl = `https://res.cloudinary.com/djzsfnsjj/${post.main_image}`;
-
             const isVideo = /\.(mp4|webm|ogg)$/i.test(post.main_image); // Check file extension
+            console.log("Generated mediaUrl:", mediaUrl);
+            console.log("Post main_image:", post.main_image);
+
 
             return (
               <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={post.id}>
