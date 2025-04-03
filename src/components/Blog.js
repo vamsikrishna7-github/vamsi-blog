@@ -27,7 +27,7 @@ const Blog = async () => {
               year: 'numeric',
             });
 
-            // Get the full URL of the media file
+            // video or image
             const mediaUrl = `${process.env.NEXT_PUBLIC_CLOUDINARY_URL}${post.main_image}`;
             const isVideo = /\.(mp4|webm|ogg)$/i.test(post.main_image); // Check file extension
 
